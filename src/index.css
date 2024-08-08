@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+}
+
+.container > * {
+  min-width: 600px;
+  margin: 5px;
+}
+
+.display {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.editor {
+  flex-grow: 1;
+  min-height: 100px;
+}
+
+.editor #editor {
+  background-color: #f2f2f2;
+  border: 1px solid black;
+  margin-bottom: 5px;
+}
+
+.error-line {
+  background-color: #faa;
+  border: 1px solid black;
+
+  margin-right: 10px;
+  margin-left: 5px;
+  margin-top: 10px;
+  padding: 2px;
+
+  color: #555;
+}
+
+#compile {
+  background: url("./hammer-fill.svg") no-repeat scroll 0px 2px;
+
+  border: 2px solid black;
+  border-radius: 5px;
+
+  padding-left: 30px;
+  padding-bottom: 18px;
+}
+
+#compile:hover {
+  background-color: #e2f2e2;
+}
+
+#compile:active {
+  background-color: #c2f2c2;
+}

@@ -1,0 +1,21 @@
+doctype html
+
+html
+  head
+    title WGSL Shader Playground
+
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+
+    link(rel="stylesheet" href="./index.css")
+
+  body
+    h1 WGSL Shader Playground
+    div.container
+      div.display
+        canvas(id="canvas" width="600" height="600")
+      div.editor
+        div(id="editor")
+        input(id="compile", type="button")
+
+    script(src="./index.ts" type="module")
