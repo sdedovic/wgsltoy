@@ -1,4 +1,9 @@
 terraform {
+  backend "s3" {
+    bucket = "terraform-backend20240809213149202200000001"
+    key    = "wgsltoy/wgsltoy/terraform.tfstate"
+    region = "us-east-2"
+  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"
