@@ -14,6 +14,10 @@ html
     div.container
       div.display
         canvas(id="canvas" width="600" height="600")
+        div.no-gpu#no-gpu-error
+          p #[strong WebGPU is not supported on this device!] This is a relavitely new API and likely will not work on your browser.
+          p For a WebGL-based alternative, check out #[a(href!="https://www.shadertoy.com/") Shadertoy].
+          p To see which browsers are currently supported, reference the #[a(href!="https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API#browser_compatibility") MDN WebGPU API compatibility document].
       div.editor
         div(id="editor")
         input(id="compile", type="button")

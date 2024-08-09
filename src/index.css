@@ -6,7 +6,7 @@
 }
 
 .container > * {
-  min-width: 600px;
+  min-width: 300px;
   margin: 5px;
 }
 
@@ -14,6 +14,10 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+}
+
+.display > canvas {
+  display: none;
 }
 
 .editor {
@@ -27,8 +31,16 @@
   margin-bottom: 5px;
 }
 
+.no-gpu {
+  border: 2px solid grey;
+  background-color: #fbb;
+
+  padding: 10px;
+  margin: 20px;
+}
+
 .error-line {
-  background-color: #faa;
+  background-color: #fbb;
   border: 1px solid black;
 
   margin-right: 10px;
