@@ -1,4 +1,4 @@
-WGSL Toy
+# WGSL Toy
 **[https://wgsltoy.com](https://wgsltoy.com)**
 
 ## Developing
