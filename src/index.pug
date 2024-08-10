@@ -8,18 +8,30 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
 
     link(rel="stylesheet" href="./index.css")
+    link(href="npm:@phosphor-icons/web/src/regular/style.css" rel="stylesheet")
 
   body
-    h1 WGSL Shader Playground
-    div.container
-      div.display
-        canvas(id="canvas" width="600" height="600")
-        div.no-gpu#no-gpu-error
-          p #[strong WebGPU is not supported on this device!] This is a relavitely new API and likely will not work on your browser.
-          p For a WebGL-based alternative, check out #[a(href!="https://www.shadertoy.com/") Shadertoy].
-          p To see which browsers are currently supported, reference the #[a(href!="https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API#browser_compatibility") MDN WebGPU API compatibility document].
-      div.editor
-        div(id="editor")
-        input(id="compile", type="button")
+    div.site-container
+      div.header
+        h1 WGSL Toy #[em(class="wip") *work in progress]
+        div.header-section
+          a(href!="https://github.com/sdedovic/wgsltoy"): span(class="ph ph-github-logo")
+      div.content
+        div.editor-container
+          div.display
+            canvas(id="canvas" width="600" height="600")
+            div.no-gpu#no-gpu-error
+              p #[strong WebGPU is not supported on this device!] This is a relavitely new API and likely will not work on your browser.
+              p For a WebGL-based alternative, check out #[a(href!="https://www.shadertoy.com/") Shadertoy].
+              p To see which browsers are currently supported, reference the #[a(href!="https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API#browser_compatibility") MDN WebGPU API compatibility document].
+          div.editor
+            div(id="editor")
+            input(id="compile", type="button")
+      div.footer
+        div.footer-section
+          p Issues, bugs, or want to contribute? This project is open source #[a(href="https://github.com/sdedovic/wgsltoy") on GitHub].
+        div.footer-section
+          p © 2024 Stevan Dedovic 
+          p All Rights Reserved
 
     script(src="./index.ts" type="module")
