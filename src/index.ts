@@ -5,8 +5,9 @@ const isWebGPUSupported = (): boolean => {
   return !!navigator.gpu;
 }
 
+
 const main = async () => {
-  const { getEditorContents, displayErrors, clearErrors } = await setupEditor(defaultShader);
+  const { getEditorContents, displayErrors, clearErrors, setCompileCallback } = await setupEditor(defaultShader);
 
   if (isWebGPUSupported()) {
     document.getElementById("no-gpu-error").style.display = "none";
@@ -25,8 +26,9 @@ const main = async () => {
         displayErrors(errors);
       }
     };
-    const btn = document.getElementById('compile');
-    btn.addEventListener('click', makeShaderModule);
+
+    document.getElementById('compile').addEventListener('click', makeShaderModule);
+    setCompileCallback(makeShaderModule);
   }
 }
 

@@ -1,5 +1,4 @@
-import { Decoration, DecorationSet, EditorView, lineNumbers, ViewPlugin, WidgetType } from '@codemirror/view';
-import { foldGutter } from '@codemirror/language';
+import { Decoration, DecorationSet, EditorView, keymap, lineNumbers, WidgetType } from '@codemirror/view';
 import { ErrorMessage } from './renderer.ts';
 import { EditorState, StateEffect, StateField } from '@codemirror/state';
 
@@ -104,9 +103,21 @@ export const setupEditor = async (doc: string) => {
     editor.dispatch({ effects });
   }
 
+  const setCompileCallback = (callback: () => Promise<void>) => {
+    const effects = [
+      StateEffect.appendConfig.of(keymap.of([{
+        key: "Mod-Enter",
+        preventDefault: true,
+        run: callback,
+      }]))
+    ];
+    editor.dispatch({ effects });
+  };
+
   return {
     getEditorContents,
     displayErrors,
     clearErrors,
+    setCompileCallback,
   };
 };
