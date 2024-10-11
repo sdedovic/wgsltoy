@@ -22,7 +22,6 @@
         formatter = pkgs.alejandra;
         devShells.default = pkgs.mkShell {
           buildInputs = [
-            pkgs.bws
             pkgs.terraform
 
             nodejs

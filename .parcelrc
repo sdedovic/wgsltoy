@@ -1,5 +1,18 @@
 {
   "extends": "@parcel/config-default",
+  "resolvers": ["./parcel/parcel-resolver-pugx.js", "..."],
+  "transformers": {
+    "*.{ts,tsx}": [
+      "@parcel/transformer-typescript-tsc"
+    ],
+    "*.tmpl": [
+      "@parcel/transformer-posthtml",
+      "@parcel/transformer-html"
+    ]
+  },
+  "packagers": {
+    "*.tmpl": "@parcel/packager-html"
+  },
   "optimizers": {
     "*.svg": []
   }

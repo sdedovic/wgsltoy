@@ -1,7 +1,11 @@
 node_modules/
+
 dist/
 .parcel-cache/
+
 .direnv/
 
 receipts/
 result
+
+.idea/
