@@ -4,12 +4,17 @@
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    htpp = {
+      url = "github:sdedovic/htpp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     flake-utils,
     nixpkgs,
+    htpp,
   }:
     flake-utils.lib.eachDefaultSystem (
       system: let
@@ -23,6 +28,7 @@
         devShells.default = pkgs.mkShell {
           buildInputs = [
             pkgs.terraform
+            htpp.packages.${system}.htpp
 
             nodejs
             nodejs.pkgs.typescript-language-server
