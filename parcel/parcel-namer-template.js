@@ -11,7 +11,7 @@ export default new Namer({
         const defaultName = (namerDefault.default ? namerDefault.default : namerDefault)[CONFIG].name(input);
 
         const { bundle } = input;
-        const directory = bundle.type === 'htpp' ? 'template' : 'public';
+        const directory = bundle.type === 'htpp' ? 'template' : 'static';
 
         return path.join(directory, defaultName);
     }

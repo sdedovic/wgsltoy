@@ -13,8 +13,7 @@
   },
   "scripts": {
     "clean": "rm -rf .parcel-cache dist",
-    "start": "npm run clean && parcel src/index.pug",
-    "start:wsl2": "npm run clean && parcel --host 0.0.0.0 src/index.pug",
+    "start": "npm run clean && parcel src/index.htpp",
     "lint": "eslint --fix src/ parcel-extentions/",
     "build:test": "parcel build src/index.htpp"
   },

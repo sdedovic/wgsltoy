@@ -1,5 +1,5 @@
-import { startShader } from './renderer.ts';
-import { defaultShader, setupEditor } from './editor.ts';
+import { startShader } from './ts/renderer.ts';
+import { defaultShader, setupEditor } from './ts/editor.ts';
 
 const isWebGPUSupported = (): boolean => {
   return !!navigator.gpu;

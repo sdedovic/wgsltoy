@@ -33,7 +33,7 @@ export default new Transformer({
         return configFile?.contents;
     },
 
-    transform: async function ({asset, config, logger}) {
+    async transform({asset, config, logger, options}) {
 
         // A template may extend other templates. Those should be processed by a different pipeline to skip rendering.
         const dependencies = await resolveDependencies(asset.filePath);
@@ -49,24 +49,27 @@ export default new Transformer({
 
         let assets = [asset];
 
-        const templateData = config ?? {};
-        const html = await render(asset.filePath, templateData);
-        let uniqueKey = `${asset.id}-html`;
+        // when we are building for the development server, render the HTML too
+        if (options.mode !== 'production') {
+            const templateData = config ?? {};
+            const html = await render(asset.filePath, templateData);
+            let uniqueKey = `${asset.id}-html`;
 
-        assets.push({
-            type: 'html',
-            content: html,
-            uniqueKey,
-            bundleBehavior: "isolated",
-            meta: {ignore: true},
-        });
+            assets.push({
+                type: 'html',
+                content: html,
+                uniqueKey,
+                bundleBehavior: "isolated",
+                meta: {ignore: true},
+            });
 
-        asset.addDependency({
-            specifier: uniqueKey,
-            specifierType: "url",
-            needsStableName: true,
-            meta: {ignore: true},
-        })
+            asset.addDependency({
+                specifier: uniqueKey,
+                specifierType: "url",
+                needsStableName: true,
+                meta: {ignore: true},
+            })
+        }
 
         return assets;
     },
