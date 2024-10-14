@@ -1,37 +1,47 @@
 extends ./base.htpp
 
 {{ define "head" }}
-    <link rel="stylesheet" href="./index.css">
-    <link href="npm:@phosphor-icons/web/src/regular/style.css" rel="stylesheet">
+<link rel="stylesheet" href="./index.css">
+<link href="npm:@phosphor-icons/web/src/regular/style.css" rel="stylesheet">
 {{ end }}
 
 {{ define "content" }}
 <div class="site-container">
     <div class="header"><h1>WGSL Toy <em class="wip">*work in progress</em></h1>
-        <div class="header-section"><a href="https://github.com/sdedovic/wgsltoy"><span class="ph ph-github-logo"></span></a></div>
+        <div class="header-section">
+            <a href="https://github.com/sdedovic/wgsltoy"><span class="ph ph-github-logo"></span></a>
+        </div>
     </div>
     <div class="content">
         <div class="editor-container">
             <div class="display">
                 <canvas id="canvas" width="600" height="600"></canvas>
-                <div class="no-gpu" id="no-gpu-error"><p><strong>WebGPU is not supported on this device!</strong> This
-                    is a relavitely new API and likely will not work on your browser.</p>
+                <div class="no-gpu" id="no-gpu-error">
+                    <p><strong>WebGPU is not supported on this device!</strong> This is a relavitely new API and likely will not work on your browser.</p>
                     <p>For a WebGL-based alternative, check out <a href="https://www.shadertoy.com/">Shadertoy</a>.</p>
-                    <p>To see which browsers are currently supported, reference the <a
-                            href="https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API#browser_compatibility">MDN
-                        WebGPU API compatibility document</a>.</p></div>
+                    <p>To see which browsers are currently supported, reference the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API#browser_compatibility">MDN WebGPU API compatibility document</a>.</p>
+                </div>
             </div>
-            {{range .Items}}<div>{{ . }}</div>{{else}}<div><strong><a href="./hammer-fill.svg">no rows</a></strong></div>{{end}}
-            <div class="editor">
+            {{range .items}}
+            <div>{{ . }}</div>
+            {{else}}
+            <div>
+                <strong><a href="./hammer-fill.svg">no rows</a></strong>
+            </div>
+            {{end}}
+                <div class="editor">
                 <div id="editor"></div>
                 <input id="compile" type="button"></div>
         </div>
     </div>
     <div class="footer">
-        <div class="footer-section"><p>Issues, bugs, or want to contribute? This project is open source <a
-                href="https://github.com/sdedovic/wgsltoy">on GitHub</a>.</p></div>
-        <div class="footer-section"><p>© 2024 Stevan Dedovic </p>
-            <p>All Rights Reserved</p></div>
+        <div class="footer-section">
+            <p>Issues, bugs, or want to contribute? This project is open source <a href="https://github.com/sdedovic/wgsltoy">on GitHub</a>.</p>
+        </div>
+        <div class="footer-section">
+            <p>© 2024 Stevan Dedovic </p>
+            <p>All Rights Reserved</p>
+        </div>
     </div>
 </div>
 {{ end }}

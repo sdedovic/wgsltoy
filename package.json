@@ -12,7 +12,7 @@
     "typescript": "^5.5.4"
   },
   "scripts": {
-    "clean": "rm -rf .parcel-cache",
+    "clean": "rm -rf .parcel-cache dist",
     "start": "npm run clean && parcel src/index.pug",
     "start:wsl2": "npm run clean && parcel --host 0.0.0.0 src/index.pug",
     "lint": "eslint --fix src/ parcel-extentions/",

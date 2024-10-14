@@ -1,7 +1,6 @@
 import path from 'path';
-import { Transformer } from '@parcel/plugin';
+import {Transformer} from '@parcel/plugin';
 import * as child_process from "node:child_process";
-import * as url from "node:url";
 
 const resolveDependencies = async (filename) => {
     return new Promise((resolve, reject) => {
@@ -9,7 +8,6 @@ const resolveDependencies = async (filename) => {
             if (error) {
                 return reject(error);
             }
-
             return resolve(stdout.split("\n").filter(line => line.trim() !== ""));
         })
     })
@@ -23,20 +21,21 @@ const render = async (filename, data) => {
             }
             return resolve(stdout);
         });
-
         process.stdin.write(JSON.stringify(data));
     })
 };
 
 export default new Transformer({
-    // async loadConfig({config}) {
-    //     let configFile = await config.getConfig([]);
-    //     return configFile?.contents;
-    // },
+    async loadConfig({config}) {
+        let configFile = await config.getConfig([
+            '.htpprc'
+        ]);
+        return configFile?.contents;
+    },
 
     transform: async function ({asset, config, logger}) {
 
-        // A template may extend other templates. Those must also be processed by the same pipeline, skipping rendering.
+        // A template may extend other templates. Those should be processed by a different pipeline to skip rendering.
         const dependencies = await resolveDependencies(asset.filePath);
         for (let filePath of dependencies) {
             const pathToDependency = path.relative(path.dirname(asset.filePath), filePath);
@@ -59,14 +58,14 @@ export default new Transformer({
             content: html,
             uniqueKey,
             bundleBehavior: "isolated",
-            meta: { ignore: true },
+            meta: {ignore: true},
         });
 
         asset.addDependency({
             specifier: uniqueKey,
             specifierType: "url",
             needsStableName: true,
-            meta: { ignore: true },
+            meta: {ignore: true},
         })
 
         return assets;

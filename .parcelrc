@@ -20,5 +20,5 @@
   "optimizers": {
     "*.svg": []
   },
-  // "namers": ["./parcel/parcel-namer-template.js", "..." ],
+  "namers": ["./parcel/parcel-namer-template.js", "..." ],
 }
