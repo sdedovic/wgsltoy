@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WGSL Toy</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{ block "opengraph" . }}
+        <meta property="og:url" content="https://wgsltoy.com">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="WGSL Toy">
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="wgsltoy.com">
+        <meta property="twitter:url" content="https://wgsltoy.com">
+
+        <meta property="og:image" content="./assets/hammer-fill.svg">
+    {{ end }}
+
+    {{ block "head" . }}
+    {{ end }}
+</head>
+
+<body>
+<div class="site-container">
+    <div class="header"><h1>WGSL Toy <em class="wip">*work in progress</em></h1>
+        <div class="header-section">
+            <a href="https://github.com/sdedovic/wgsltoy"><span class="ph ph-github-logo"></span></a>
+        </div>
+    </div>
+    <div class="content">
+        {{ block "content" . }}
+        {{ end }}
+    </div>
+    <div class="footer">
+        <div class="footer-section">
+            <p>Issues, bugs, or want to contribute? This project is open source <a href="https://github.com/sdedovic/wgsltoy">on GitHub</a>.</p>
+        </div>
+        <div class="footer-section">
+            <p>© 2024 Stevan Dedovic </p>
+            <p>All Rights Reserved</p>
+        </div>
+    </div>
+</div>
+
+{{ block "scripts" . }}
+{{ end }}
+</body>
+</html>

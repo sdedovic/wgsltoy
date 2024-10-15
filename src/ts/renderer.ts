@@ -4,8 +4,7 @@ export interface ErrorMessage {
   length: number,
   linePos: number,
   offset: number,
-};
-
+}
 
 const templateShader = (userFn: string) => {
   return `
