@@ -9,13 +9,13 @@
       "@parcel/transformer-posthtml",
       "@parcel/transformer-html"
     ],
-    "htpp-partial": [
+    "htpp-partial:*": [
       "@parcel/transformer-posthtml",
       "@parcel/transformer-html"
     ]
   },
   "packagers": {
-    "*.{htpp}": "@parcel/packager-html"
+    "*.htpp": "@parcel/packager-html",
   },
   "optimizers": {
     "*.svg": []

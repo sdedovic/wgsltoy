@@ -60,14 +60,10 @@ export default new Transformer({
                 content: html,
                 uniqueKey,
                 bundleBehavior: "isolated",
-                meta: {ignore: true},
             });
 
-            asset.addDependency({
-                specifier: uniqueKey,
-                specifierType: "url",
+            asset.addURLDependency(uniqueKey, {
                 needsStableName: true,
-                meta: {ignore: true},
             })
         }
 
