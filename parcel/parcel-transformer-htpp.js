@@ -42,6 +42,8 @@ export default new Transformer({
 
             asset.invalidateOnFileChange(filePath);
             asset.addURLDependency(pathToDependency, {
+                // Partials (i.e. templates that are dependencies but not rendered themselves) do not have this
+                //  Transformer applied to them.
                 pipeline: "htpp-partial",
                 needsStableName: true,
             });
