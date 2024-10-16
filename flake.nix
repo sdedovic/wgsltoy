@@ -62,14 +62,17 @@
           staticAssets = base.overrideAttrs (final: prev: {
             installPhase = ''
               mkdir $out
-              cp -r dist/static/* $out
+              cp -r dist/* $out
+
+              # templates are excluded. probably a better way to "copy recurively excluding one directory" using rsync
+              rm -rf $out/templates
             '';
           });
 
           templates = base.overrideAttrs (final: prev: {
             installPhase = ''
               mkdir $out
-              cp -r dist/template/* $out
+              cp -r dist/templates/* $out
             '';
           });
         };
